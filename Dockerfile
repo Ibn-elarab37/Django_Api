@@ -1,16 +1,15 @@
-# Use Python 3.11 slim as base image
+# Use official Python image
 FROM python:3.11-slim
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Set working directory
+# Set work directory
 WORKDIR /app
 
-# Install system dependencies for mysqlclient & cryptography
+# Install system dependencies required for some libraries
 RUN apt-get update && apt-get install -y \
-    default-libmysqlclient-dev \
     gcc \
     libffi-dev \
     && apt-get clean \
@@ -24,8 +23,8 @@ RUN pip install -r requirements.txt
 # Copy project files into the container
 COPY . .
 
-# Expose port 8000 for Django
+# Expose Django's default port
 EXPOSE 8000
 
-# Start Django server
+# Run Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
