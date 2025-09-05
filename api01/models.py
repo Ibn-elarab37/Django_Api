@@ -1,7 +1,7 @@
 from django.db import models
 # Create your models here.
 
-class Desha(models.Modle):
+class Desha(models.Model):
     title = models.CharField(max_lenght =200)
     author = models.CharField(max_lenght =100)
     published_date = models.DateField()
