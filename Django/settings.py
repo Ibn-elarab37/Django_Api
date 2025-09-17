@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api01.apps.Api01Config',
+    'booklist.apps.BooklistConfig',
 ]
 
 MIDDLEWARE = [
